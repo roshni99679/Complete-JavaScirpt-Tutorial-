@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance javascript </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Exceptions and Error Handling in Js </h1>
+    <h2>1.syntax errors(parsing errors_) </h2>
+
+    <h3>occurs at compile time in traditional programming lang but at interpret time in javascript </h3>
+    <p>example:</p>
+    <p>window.print(;   //inside script tag</p>
+
+    <h2>2.Runtime errors (occurs druing execution -after compilation or interpretation )</h2>
+    <p>example:</p>
+    <p>window.printme();  //inside script tag </p>
+    <p>runtime error - calling a fn that does not exist</p>
+
+    <h2>3.Logical errors(most difficult type of errors)</h2>
+    <h3>you cannot catch these errors as they are not a result of runtime or syntax errors </h3>
+    <h3>thay occur when you make a mistake in the logic that drives your script and you do not get the result you expected</h3>
+
+    <h1>Handling Errors and Exceptions in Js</h1>
+    <h2>try..catch..finally Statement </h2>
+    <h3>click the following to see the result </h3>
+    <input type="button" value="clickme" onclick="myfun()">
+    <script>
+        function myfun(){
+            var a=100;
+            try{
+                alert("the value of a is :"+a)
+            }
+            catch(e){
+                alert(e.description)
+
+            }
+            finally{
+                alert("finally block is always executed ")
+
+            }
+        }
+    </script>
+    <hr>
+    <h1>Throw operator </h1>
+    <h3>please enter a number between 5 and 10</h3>
+    <input type="text" name="" id="demo">
+    <button type="button" onclick="myfunc()">test input</button>
+    <p id="message"></p>
+    <script>
+        function myfunc(){
+            var message,x;
+            message=document.getElementById("message");
+            message.innerHTML="";
+            x=document.getElementById("demo").value;
+            try{
+                if(x>10) throw "value is greater";
+                if(x<5) throw "value is smaller";
+                if(isNaN(x)) throw "is not a number "
+                x=Number(x);
+                if(x==" ") throw "is empty";
+
+            }
+            catch(e){
+                message.innerHTML="input "+ e;
+            }
+            finally{
+                document.getElementById("demo").value="";
+
+            }
+
+        }
+
+    </script>
+    <hr>
+    <h1>Validation in Javascript </h1>
+    <h3>form validation used to occur at server side .Javascript provides a way to validate forms data on clients side before sending it to web server </h3>
+    <h3>if the form is not valid , the form is not submitted until errors are fixed </h3>
+    <h3>client side validation ensures data is correct so it is advantageous over server-side validation </h3>
+    <h2>types of form Validation</h2>
+    <h3>a.Basic Form validation</h3>
+    <form action="" name="myform" onsubmit="validateform()">
+    Enter name : <input type="text" name="name">
+    Enter password: <input type="password" name="password1">
+    Re-Enter password: <input type="password" name="password2">
+    <input type="submit" value="Register">
+
+    </form>
+    
+    <script>
+        function validateform(){
+            var name=document.myform.name.value;
+            var password1=document.myform.password1.value;
+            var password2=document.myform.password2.value;
+            if (name==""||name==NULL){
+                alert("name cant be blank");
+                return false;
+            }
+            else if(password1.length<6){
+                alert("password must contain atleast 6 characters ");
+                return false;
+            }
+            else if(password1==password2){
+                
+                return true;
+            }
+            else{
+                alert(" both passwords must be same ");
+                return false;
+            }
+
+        }
+        
+
+    </script>
+    <h3>Data Format Validation </h3>
+    <p> ex: format of email address validation ( email must contain @ and .)</p>
+    <form action="" onsubmit="return validateemail();" name="forms">
+        Name: <input type="text" name="yourname"><br>
+        email: <input type="email" name="email"><br>
+        <input type="submit" value="register">
+    </form>
+    <script>
+        function validateemail(){
+            var q=document.forms.email.value;
+            var atposition=q.indexOf("@") ;
+            var dotposition=q.lastIndexOf(".") ;
+            if(atposition<1||dotposition<atposition+2||dotposition+2>=x.length){
+                alert("Enter valid email address");
+                return false;
+                
+            }
+        }
+    </script>
+    <hr>
+    <h1>Animations in Javascript </h1>
+    <h2>functions used :</h2>
+    <h3>setTimeout(function , duration):this fn calls function after duration milliseconds from now </h3>
+    <h3>setinterval(function , duration):this fn calls function after every duration milliseconds</h3>
+    <h3>clearTimeout(srtTimeout_variable):this fn clears any timer set by the setTimeout() fn </h3>
+    <h2>ways to animate using js  </h2>
+    <h3>1.manual animations :</h3>
+    <form action="">
+        <img src="images/d1.jpeg" alt="" id="img">
+        <p>click button to move image to right </p>
+        <input type="button" onclick="moveright()" value="click me">
+    </form>
+    <script>
+        var imgobj=null;
+        function init(){
+            imgobj=document.getElementById("img");
+            imgobj.style.postion="relative";
+            imgobj.style.left="0px";
+
+        }
+        function moveright(){
+            imgobj.style.left= parseInt(imgobj.style.left) + 100 +"px";
+        }
+        window.onload=init;
+
+    </script>
+    <h3>2.Automated Animations </h3>
+    <form action="">
+        <img src="images/d1.jpeg" alt="" id="imgs"><br>
+        <input type="button" value="start" onclick="moveright()">
+        <input type="button" value="stop" onclick="stop()">
+    </form>
+    <script>
+        var imgob=null;
+        var animate;
+        function initialize(){
+            imgob=document.getElementById("imgs");
+            imgob.style.position="relative";
+            imgob.style.left="0px";
+        }
+        function move_right(){
+            imgob.style.left=parseInt(imgob.style.left)+ 10 +"px";
+            animate=setTimeout(move_right,20);
+        }
+        function stop(){
+            clearTimeout(animate);
+            imgob.style.left= "0px";
+
+        }
+        window.onload=initialize;
+    </script>
+    <hr>
+    <h1>Multimedia in Javascript</h1>
+    <h2>List of Plug-ins</h2>
+    <table border="1">
+        <tr>
+            <th>Plug-in name </th>
+            <th>Filename</th>
+            <th>Description </th>
+        </tr>
+    </table>
+    <script>
+        for(i=0;i<navigator.plugins.length;i++){
+            document.write("<tr><td>");
+            document.write(navigator.plugins[i].name ); 
+            document.write("</td><td>");
+            document.write(navigator.plugins[i].filename);
+            document.write("</td><td>");
+            document.write(navigator.plugins[i].description);
+            document.write("</td></tr>");
+            
+        }
+    </script>
+    <hr>
+    <h1>Debugging</h1>
+    <h3>a mistake in a program or script is a bug . The process of finding and fixing bugs is called Debugging</h3>
+    <h4>1.Internet Explorer: by default it shows error icon in status bar when an error occurs </h4>
+    <h4>2.Google Chrome:rightclick>inspect>console>errors  </h4>
+    <p>error notifications are result of syntax and runtime errors </p>
+    <h2>Ways to Debug in Javascript </h2>
+    <h3>1.By using Js Validators(Checkout JsLint: to check bugs or warnings by pasting your source code  )</h3>
+    <h3>2.Add debugging code to the program :use alert() or document.write() method</h3>
+    <h3>3.Use Js Debugger:(checkout https://www.hacksrus.com/~ginda/venkman( Venkman Development ))</h3>
+    <hr>
+    <h1>Image map in Javscript </h1>
+    <h3>js can be used to create client-side image map</h3>
+    <h3>client-side image maps are enabled by usemap attribute for the <img/> tag and defined by special <map> and <area> extension tags </map></h3>
+    <img src="images/d1.jpeg" width="200px" height="200px" alt="" usemap="#Indiamap">
+    <map name="Indiamap">
+        <area shape="rect" coords="0,0,82,126" href="welcome1.html" alt="india" target="_blank" onmouseover="writetext('This is the map of India')">
+    </map>
+    <p id="note"></p>
+    <script>
+        function writetext(txt){
+            document.getElementById("note").innerHTML=txt;
+        }
+    </script>
+    <hr>
+    <h1>Browser Compatibility </h1>
+    <h2>Navigator properties </h2>
+    <h3>1.appcodeName </h3>
+    <h3>2.appVersion </h3>
+    <h3>3.language </h3>
+    <h3>4.mimTypes[] </h3>
+    <h3>5.platform[] </h3>
+    <h3>6.plugins </h3>
+    <h3>7.userAgent[]: gives name and version  </h3>
+    <h2>Browser Detection </h2>
+    <script>
+        var userAgent=navigator.userAgent;
+        var opera=(userAgent.indexOf('opera')!=-1);
+        var exp=(userAgent.indexOf('MSIE')!=-1);
+        var netscape=(userAgent.indexOf('Mozilla')!=-1);
+        var version =  navigator.appVersion;
+        if(exp){
+            document.write("IE based Browser ")
+        }
+        else if(opera){
+            document.write("opera based Browser ")
+        }
+        else if(netscape){
+            document.write("Mozilla based Browser ")
+        }
+        
+        else{
+            document.write("unknown browser ")
+        }
+        document.write("<br/> Browser version info:"+ version);
+    </script>
+    <hr>
+    <script>
+        var q=null;
+        q++;
+        document.write(q)
+
+        var ob={
+            0:"jj",1:"vv",2:"ee"
+        }
+        var k=1 in ob;
+        document.write(k)
+
+        var a ="bolt";
+        function f(){
+            if(!a){
+                var a="nut";
+            }
+            document.write(a);
+        }
+        f();
+        document.write(a);
+
+        var p=function(){
+            document.write("matt");
+            p=function(){
+                document.write("james")
+            }
+        }
+        var copy=p;
+        p();
+        copy();
+
+        bar();
+        function bar(){
+            document.write("bar");;
+        }
+        var a=false;
+        var x=a?"A":"B";
+        document.write(x)
+    </script>
+    <script>
+        var foo="foo";
+        var bar="bar";
+        function hn(){
+            return foo + bar;
+        }
+        hn();
+    </script>
+
+
+
+
+
+
+
+    
+
+
+
+
+</body>
+</html>

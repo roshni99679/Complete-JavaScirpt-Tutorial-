@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assignment6</title>
+</head>
+<body>
+    <h1>For loop and Reg Exp</h1>
+    <h2>to find the longest word in the string with the help of reg exp</h2>
+    <h3>the longest word in the string "learn javascript with learn vern ,Its Great and wonderful." is  </h3>
+    <span id="span"></span>
+
+    <script>
+        function find_long(string){
+            var words=string.match(/\w[a-z]{0,}/gi);
+            var result=words[0];
+            for(var x=1;x<words.length;x++){
+                if(result.length<words[x].length){
+                    result=words[x];
+                    
+
+                }
+            }
+            return result;
+            
+        }
+        
+        document.getElementById("span").innerHTML=find_long("learn javascript with learn vern ,Its Great and wonderful.")
+        
+    </script>
+</body>
+</html>

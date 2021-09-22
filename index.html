@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script>
+        function welcome(){
+            alert("hello im an internal script written inside head tag using alert() ")
+        }
+    </script> -->
+</head>
+<body>
+    <!-- <input type="button" onclick="welcome()" value="clickme"><br>
+    <h3 id="random">Im a random text with id random </h3>
+    <script>
+        document.write("<h1>hello im an internal script written inside body tag using document.write() </h1>")
+        console.log("hello im inside body and written using console.log() ")
+        document.getElementById("random").innerHTML="Im changed using document.getElementbyId and .InnerHTML"
+
+    </script> -->
+    
+    <h1>Datatypes in Js </h1>
+    <h3>1.Primitive datatype (using var)</h3>
+    <p id="para"></p>
+
+    <script>
+        var str1="im a string";  //string
+        var n1= 66;              //number
+        var n2=55.88             //number
+        var b1=true;             //boolen
+        var b2=false;            //boolean
+        var x;                   //undefined (both value and type is undefined)
+        var y=null;              //null      (value is null but type is object)
+
+        document.getElementById("para").innerHTML = 
+        "the value of str1 is "+str1+"<br>"+
+        "the value of n1 is "+n1+"<br>"+
+        "the value of n2 is "+n2+"<br>"+
+        "the value of b1 is "+b1+"<br>"+
+        "the value of b2 is "+b2+"<br>"+
+        "the value of x is "+x+"<br>"+
+        "the value of y is "+y;    
+    </script>
+
+    <h1>Evaluation of expressions in Js (left to right)</h1>
+    <p id="paras"></p>
+    <script>
+        var z= 20+40+"data";  //adds 20 and 40 and considers the sum as string and then appends data to it
+        var w= "data"+20+40;  //20 and 40 are also considered as strings hence it appends all strings
+        var a="";
+        
+        document.getElementById("paras").innerHTML= 
+        "the value of z is "+z+"<br>"+
+        "the type of z is "+ typeof z +"<br>"+
+        "the value of w is "+w+"<br>"+
+        "the type of w is "+ typeof w+"<br>"+
+        "the value of a is "+a+"<br>"+
+        "the type of a is "+ typeof a;
+
+    </script>
+
+    <h1>2.Non primitive Datatypes in Js</h1>
+    <h3>A. Objects in js </h3>
+    <p id="parass"></p>
+    <script>
+        var student={
+            name:"Roshni",
+            age:21,
+            percentage:98,
+            standard:8
+
+        }
+        document.getElementById("parass").innerHTML= 
+        student.name +" "+student.age+" "+student.percentage+" "+student.standard;
+    </script>
+
+    <h3>B.Arrays </h3>
+    <p id="demo"></p>
+    <script>
+        var stu=["raj" , "rohan", "lolo" , "lolii"];
+        document.getElementById("demo").innerHTML= 
+        "student who got highest marks is "+stu[0]+"<br>"+
+        "student who got lowest marks is "+stu[2];
+    </script>
+
+    <h1>Operators in Js</h1>
+    <h3>A. Arithematic op :</h3>
+    <p>+ - * / % ++ --</p>
+
+    <p id="lala"></p>
+    <p id="lolo"></p>
+
+    <script>
+        var a1=200;
+        var a2=100;
+        var a3="hello";
+        var a4="loli";
+
+        
+        var add = a1+a2;
+        var sub = a1-a2;
+        var mul = a1*a2;
+        var div = a1/a2;
+        var mod = a1%a2;
+        var stradd = a3+a4;
+        var inc=a1++;
+        var dec=a2--;
+        var incc=++a1;
+
+        document.getElementById("lala").innerHTML= 
+        "a1++ is "+inc+"<br>"+
+        "++a1 is "+incc+"<br>"+
+        "a2-- is "+dec;
+
+        document.getElementById("lolo").innerHTML= 
+        "a3+a4 is "+stradd+"<br>"+
+        "a1%a2 is "+mod+"<br>"+
+        "a1+a2 is "+add;
+    </script>
+
+    <h3>B.Comparison operators</h3>
+    <p>== != < > <= >= </p>
+    <p id="loli"></p>
+    <script>
+        var b1=100;
+        var b2=200;
+
+        var eq=(b1==b2);
+        var neq=(b1!=b2);
+        var gr=(b1>b2);
+        var sm=(b1<b2);
+        var geq=(b1>=b2);
+        var seq=(b1<=b2);
+
+        document.getElementById("loli").innerHTML= 
+        "b1 is "+b1+" b2 is "+b2+"<br>"+
+        "b1==b2 is "+eq+"<br>"+
+        "b1!=b2 is "+neq+"<br>"+
+        "b1>b2 is "+gr+"<br>"+
+        "b1<b2 is "+sm+"<br>"+
+        "b1>=b2 is "+geq+"<br>"+
+        "b1<=b2 is "+seq;
+
+    </script>
+
+    <h3>C.Logical operators </h3>
+    <p>logical AND :&& , logical OR : || , logical NOT : ! </p>
+    <p id="loli1"></p>
+    <script>
+        var c1=true;
+        var c2=false;
+
+        var and= (c1&&c2);
+        var or=(c1||c2);
+        var not=(!(c1&&c2));
+
+        document.getElementById("loli1").innerHTML= 
+        "c1 and c2 are "+c1+" and "+ c2+"<br>"+
+        "(c1&&c2) is "+and +"<br>"+
+        "(c1||c2) is "+or+"<br>"+
+        "(!(c1&&c2)) is "+not;
+
+    </script>
+
+    <h3>D.Assignment operators</h3>
+    <p>Simple assignment (=) <br>example:
+    c=a+b </p>
+    <p>Add and assign (+=) <br>example:
+    c+=a is same as c=c+a</p>
+    <p>Subtract and assign (-=) <br>example:
+    c-=a is same as c=c-a  </p>
+    <p>Multiply and assign (*=) <br>example:
+    c*=a is same as c=c*a</p>
+    <p>Divide and assign (/=) <br>example:
+    c/=a is same as c=c/a</p>
+    <p>Modulus and assign (%=) <br>example:
+    c%=a is same as c=c%a</p>
+
+    <h3>D.Conditionl operator </h3>
+    <p>syntax: <br>
+        ?:(Conditional) <br>
+        if condition is true?Then value x :Otherwise value y . <br>
+        example: var a=10; var b=20; <br>
+        c=(a>b)?100:200; <br>
+        op:200 
+    </p>
+    <p id="loli3"></p>
+    <script>
+        var z1=100;
+        var z2=120;
+        var z3=(z1>z2)? true:false;
+        
+        var z5=(typeof z2=="string"?"z2 is string":"z2 is numeric");
+
+        document.getElementById("loli3").innerHTML= 
+        "z1 is "+z1+" z2 is "+z2+"<br>"+
+        
+        "(z1>z2) is "+z3+"<br>"+
+        "z2 is string?  "+z5;
+
+    </script>
+    <h1>Conditional Statements in javascript </h1>
+    <h3>A.if statements </h3>
+    <p>if(a>b){<br> block of code to be executed if condition is true <br> }</p>
+
+    <h3>B.if..else </h3>
+    <p>if(condtion){ <br> block of code to be executed if condition is true <br>  } <br>
+    else{ <br> block of code to be executed if condition is false <br> }</p>
+    <script>
+        // var ro=prompt("enter a number");
+        if(ro/2==0){
+            document.write("number is even");
+        }
+        else{
+            document.write("number is odd")
+        }
+    </script>
+    <h3>C.else if statement </h3>
+    <p>syntax: <br>
+    if(condition1){ <br>
+    block of code to be executed if condition 1 is true <br>
+    } <br>
+    else if(condition2){<br>
+    block of code to be executed if condition1 is false and condition 2 is true <br>
+    } <br>
+    else{ <br>
+    block of code to be executed if condition1 is false and condition 2 is false <br>
+    }</p>
+
+    <script>
+        // var message ='heyy';
+        if(message=="hello"){
+            document.write("hello friends")
+        }
+        else if(message=="hii"){
+            document.write("hii friends")
+        }
+        else if(message=="heyy"){
+            document.write("heyy friends")
+        }
+        else{
+            document.write("welcome friends")
+        }
+    </script>
+
+    <h1>Switch-Case statements in javascript </h1>
+    <p>we can use switch case instead of if..else..if </p>
+    <p>syntax: <br>
+    switch(expression) <br>
+    { <br>
+    case condn1:statement <br>
+    break; <br>
+    case condn2:statement <br>
+    break; <br>
+    case condnn:statement <br>
+    break; <br>
+    default: statements <br>
+    }</p>
+    <script>
+        document.write("3 April is ")
+
+        // var day="hello";
+        switch(day)
+        {
+            case 1: document.write("Monday <br> ");
+            break;
+            case 2: document.write("tuesday <br> ");
+            break;
+            case 3: document.write("wednesday <br> ");
+            break;
+            case 4: document.write("thursday <br> ");
+            break;
+            case 5: document.write("friday <br> ");
+            break;
+            case 6: document.write("saturday <br> ");
+            break;
+            case 7: document.write("sunday <br> ");
+            break;
+            default: document.write("unknown day <br> ")
+        }
+
+    </script>
+
+    <h1>Loops in Js </h1>
+    <p>loops can execute a block of code as long as specified condn is true </p>
+    <h3>A.While loop </h3>
+    <p>syntax: <br>
+    while(condition) <br>
+    { <br>
+    conditional code; <br>}
+    </p>
+    <script>
+        // n=0;
+        while(n<10)
+        {
+            document.write("number is "+n+"<br>");
+            n++;
+        }
+        document.write("loop stopped ")
+    </script>
+    <h3>B.Do while loop </h3>
+    <p>syntax:</p>
+    <p>do{ <br> code to be executed <br>} <br>while(condition );</p>
+
+    <script>
+        n=0;
+        do{
+            document.write("number is "+ n + "<br>")
+            n++;
+        }
+        while(n<5);
+        document.write("loop stopped ")
+    </script>
+
+    <h3>C.For loop</h3>
+    <p>Syntax:</p>
+    <p>for (stat1;stat2;stat3){</p>
+    <p>code of block to be executed</p>
+    <p>}</p>
+    <p>stat 1 is executed before the loop starts</p>
+    <p>stat2 defines the condn for running the loop</p>
+    <p>stat3 is executed each time after the loop has been executed</p>
+
+    // <script>
+    //     var o;
+    //     for(o=0;o<5;o++){
+    //         document.write("number is "+o+"<br>")
+    //     }
+    //     document.write("loop stopped " +"<br>")
+
+    // </script>
+    <script>
+        var o=0;
+        for(;o<5;){
+            document.write("number-"+o+"<br>")
+            o++;
+        }
+        document.write("loop stopped ")
+
+    </script>
+
+    <h3>D.For..in Loop </h3>
+    <p>Syntax:</p>
+    <p>for(var in object ){</p>
+    <p>code to be executed </p>
+    <p>}</p>
+    <script>
+        var student={
+            fname:"Roshni",
+            lname:"Gupta",
+            age:21,
+            id:1234
+        };
+        var u;
+        for(u in student){
+            document.write(student[u]+" ");
+        }
+    </script>
+    <h1>Loop controls in Js </h1>
+    <h3>1.break:jumps out of loop and executes code out of loop  </h3>
+    
+    
+    <script>
+        // var h;
+        for(h=0;h<10;h++){
+            if(h==4){
+                break;
+                document.write("h is "+h+"<br>");
+            }
+        document.write("loop break ")
+        }
+    </script>
+    <h3>2.continue : jumps over one iteration in loop </h3>
+    
+    <script>
+        // var g=1;
+        while(g<6){
+            g=g+1;
+            if(g==4){
+                continue;
+            }
+            document.write("g is "+g+"<br>")
+        }
+        
+    </script>
+    <hr>
+    <h1>Introduction to functions </h1>
+    <h2>defining a function </h2>
+    <h3>a.function declaration</h3>
+    <p>Functions are called/invoked when they are called </p>
+    <p>syntax:(inside script tags )</p>
+    <p>function functionname(parameter-list){</p>
+    <p>code to be executed </p>
+    <p>}</p>
+    <p>functionname(arguments) // calling a function </p>
+    <script>
+        // function sayhello(){
+        //     alert("hello there, welcome to functions ")
+        // }
+        // sayhello()
+
+    </script>
+    <script>
+        // function check(a,b){
+        //     alert("a is "+a+"b is "+b);
+        // }
+        // check(1); /*less number of arguments is passed (remaining will become undefined )*/
+        // check(1,2);  /*correct no. of arguments is passed */
+        // check(1,2,3);  /* more no. of arguments is passed (ignore extra arguments )*/
+        
+    </script>
+    <h2>invoking a function (calling a function )</h2>
+    <h3>a.invoking a fn on occurence of a event like clicking a button </h3>
+    <script>
+        function yes(name,age){
+            document.write(name+" is"+age+" years old ");
+        }
+        
+    </script>
+    <input type="button" onclick="yes('Roshni',21)" value="hey hello">
+    <h3>b.invoking a fn by javascript code in 4 diiferent ways </h3>
+    <h2>1.invoking function as a function </h2>
+    <p id="dem"></p>
+    <script>
+        function myfun(a,b){
+            return a*b;
+        }
+        document.getElementById("dem").innerHTML=myfun(10,20); /*this fn is called as a fn (fn is a global fn)(can also be written as window.functionname) */
+    </script>
+    <h2>2.invoking fn as a method </h2>
+    <p id="de"></p>
+    <script>
+        let name={
+            fn:"raj",
+            ln:"jowari",
+            fullname:function(){
+                return this.fn +" "+this.ln;
+            }
+        }
+        document.getElementById("de").innerHTML= name.fullname();
+    </script>
+    <h2>3.invoking fn as a fn constructer</h2>
+    <p id="dello"></p>
+    <script>
+        function myfunctions(a,b){
+            this.fn=a;
+            this.ln=b;
+        }
+        let v=new myfunctions("khush","gupta "); /*new keyword is used to make a constructer of fn */
+        document.getElementById("dello").innerHTML=v.fn+" "+v.ln;
+    </script>
+    <h2>4.invoking fn with a fn method </h2>
+    <p>call() and apply() are pre defined js methods </p>
+    <p>call() takes arguments separately and apply() takes arguments as array </p>
+    <p id="dill"></p>
+    <script>
+        let result;
+        function funs(a,b){
+            return a*b;
+        }
+        result= funs().call(result,2,3)
+        document.getElementById("dill").innerHTML="multiplication is "+result ;
+
+
+    </script>
+    <script>
+        let result;
+        function fund(a,b){
+            return a*b;
+        }
+        let arr=[2,3];
+        result= fund().apply(result,arr);
+        document.getElementById("dill").innerHTML="multiplication is "+result ;
+
+
+    </script>
+
+    <h2>Function nesting </h2>
+    <script>
+        function first(x,y){
+            var name;
+            name=x+y;
+            return name;
+        }
+        function second(){
+            var resul;
+            resul=first("deep ","gupta ");
+            document.write(resul);
+        }
+        
+    </script>
+    <input type="button" onclick="second()" value="click to call fn ">
+    <hr>
+    <h1>Events in javascript </h1>
+    <h3>events are a part od document object model(DOM) level 3 </h3>
+    <h4>1.onchange():an HTML element has been changed </h4>
+    <h5>select a color from given options </h5>
+    <select name="" id="select" onchange="myfunction()">
+        <option value="yellow">yellow</option>
+        <option value="blue">blue</option>
+        <option value="green">green</option>
+        <option value="pink">pink</option>
+    </select>
+    <p id="dell"></p>
+    <script>
+        function myfunction(){
+            var e= document.getElementById("select").value;
+            document.getElementById("dell").innerHTML="you selected "+e+" color";
+        }
+    </script>
+    <h4>onclick():user clicks an HTML element </h4>
+    <h5>click the button and see result </h5>
+    <input type="button" onclick="hello()" value="clickme">
+    <script>
+        function hello(){
+            alert("hello there ")
+        
+        }
+    </script>
+    <h4>3.onsubmit():occurs when we submit a form </h4>
+    <form action="" onsubmit="myfun()">
+        Enter name :<input type="text" name="fname">
+        <input type="submit" value="submit">
+    </form>
+    <script>
+        function myfun(){
+            alert("you submitted ")
+        }
+    </script>
+    <h4>4.onmouseover() and onmouseout() event </h4>
+    <div onmouseover="over()" onmouseout="out()"><h2>You are inside div</h2></div>
+    <script>
+        function over(){
+            document.write("onmouseover() event occured")
+        }
+        function out(){
+            document.write("onmouseout() event occured")
+        }
+    </script>
+    <h4>5.onkeydown() event </h4>
+    <p>capitalizes letter as soon as key is pressed</p>
+    Enter your name: <input type="text" id="text1" onkeydown="myfunc()">
+    <script>
+        function myfunc(){
+            var d= document.getElementById("text1");
+            d.value=d.value.toUpperCase();
+        }
+    </script>
+    <h4>6.onload() event: used in body tag </h4>
+    <script>
+        function onload(){
+        alert("onload has occured ")
+        }
+    </script>
+    <hr>
+    <h1>Introduction to Cookies (HTTP Cookie /internet cookie)</h1>
+    <h3>js can read create modify and delete cookie that apply to the current webpage </h3>
+    <h3>cookies are plain text data record of 5-variable-length fields-</h3>
+    <p><strong>1.Expires:</strong> The date when cookie will expire . if this is blank , the cookie will expire when the visitor  quits the browser </p>
+    <p><strong>2.Domain:</strong>The domain name of your site </p>
+    <p><strong>3.path:</strong>The path to directory or webpage that set the cookie </p>
+    <p><strong>4.Secure:</strong>if this field contains word "secure", then the cookie may be only retrieved with a secure server</p>
+    <p><strong>3.Name=Value:</strong>cookies are set and retrieved in the form of key-value pairs </p>
+    <p>cookies are created by web browsers and sent and stored in web server. Cookies have a unique id by which they can be retrieved</p>
+    <h2>Types of cookies </h2>
+    <h3>1.Session Cookies </h3>
+    <p>these are stored in temporary memory and is not retained if the browser is closed </p>
+    <h3>2.Persistent cookies</h3>
+    <p>also known as stored cookies . it is stored for a fixed peiod of time on computer,and is not deleted when the browser is closed </p>
+    <h2>Creating a cookie</h2>
+    <p>in js cookies are modified with the help of cookie property of document object </p>
+    <p>with the help of <strong>document.cookie </strong> property js can read , create,modify and erase the cookies </p>
+    <p>document.cookies="username=Learn Vern "(name-value pair(not a string ))</p>
+    <hr>
+    
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+    
+
+
+
+
+    
+
+
+
+    <!-- steps to enable js in chrome : -->
+    <!-- 1.chrome menu>settings>advanced settings>privacy section>content settings>select allow all sites to run javascript -->
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment1</title>
+</head>
+<body>
+    <h1> Calculate Area of Rectangle and Square and determine which is greater </h1>
+    
+    <script>
+        var length=prompt("enter length of rec");
+        var width=prompt("enter width of rec");
+        var rectangle = length*width;
+        alert('area of rectangle is '+rectangle+"units ");
+        
+        var sq=prompt("enter side of square");
+        var square=sq*sq;
+        alert('area of square is '+square+"units");
+
+        if (rectangle>square){
+            alert("area of rec is greater");
+
+        }
+        else{
+            alert("area of sq is greater")
+        }
+    </script>
+</body>
+</html>

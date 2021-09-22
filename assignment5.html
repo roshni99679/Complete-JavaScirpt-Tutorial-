@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event handlers assignment</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var counter=1;
+        function myfunction(){
+            if(counter==1){
+                document.search.src="images/d1.jpeg"
+                counter=2
+            }
+            else if(counter==2){
+                document.search.src="images/d2.jpeg"
+                counter=3
+
+            }
+            else if(counter==3){
+                document.search.src="images/newrosh.jpg"
+                counter=1
+
+            }
+              
+        }
+        function submits(){
+            alert("Thankyou " + myform.data.value)
+        }
+        function capitalize(){
+            var d=document.getElementById("names");
+            d.value=d.value.toUpperCase();
+        }
+        
+    </script>
+</head>
+<body>
+    <h1>using onclick and onsubmit event handlers </h1>
+
+    <img src="images/d1.jpeg" alt="image " id="images" name="search">
+
+    <h2>Type your name in the box given :</h2>
+
+    <form name="myform" onsubmit="submits()">
+        <input type="text" id="names" name="data" onkeydown="capitalize()">
+        <input type="button" onclick="myfunction()" value="view images">
+        <input type="submit" value="finish">
+
+    </form>
+
+    
+</body>
+</html>

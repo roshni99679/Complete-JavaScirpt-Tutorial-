@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment2</title>
+</head>
+<body onload="welcome()"> 
+
+    <h1>Use of Datatypes and Variables </h1>
+    <p id="demo"></p>
+
+    <script>
+        function welcome(){
+            var fn= prompt("Enter your first name ");
+            var ln= prompt("Enter your last name ");
+            var pin=prompt("Enter your pincode ");
+            var con= prompt("Enter your contact number");
+
+            if(fn!=null){
+                alert("hello "+fn+ln+" welcome!");
+            }
+            document.getElementById("demo").innerHTML= 
+            "hello "+fn+" your details are: "+"<br>"+
+            "name is "+fn+ln+"<br>"+
+            "pin is "+pin+"<br>"+
+            "contact is "+con;
+        }
+
+
+    </script>
+    <!-- here fn welcome is not called anywhere therfore we have used onload in body tag to call it when body is loaded
+    
+    -->
+
+        
+</body>
+</html>

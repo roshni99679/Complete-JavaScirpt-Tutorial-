@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions </title>
+</head>
+<body>
+    <form action="">
+        Enter 1st number : <input type="text" name="" id="first"><br>
+        Enter 2nd number : <input type="text" name="" id="second"><br>
+        <input type="button" onclick="multiply()" value="Multiply"> <br>
+        <input type="button" onclick="divide()" value="divide"><br>
+    </form>
+    <p>The result is : <br>
+    <span id="result"></span>
+    </p>
+    <script>
+        function multiply(){
+            num1= document.getElementById("first").value;
+            num2= document.getElementById("second").value;
+            document.getElementById("result").innerHTML=num1*num2;
+        }
+        function divide(){
+            num1= document.getElementById("first").value;
+            num2= document.getElementById("second").value;
+            document.getElementById("result").innerHTML=num1/num2;
+            
+        }
+    </script>
+    <hr>
+    <h1>To find count of occurence of a letter</h1>
+    <h3>The occurence of letter e in string- learn vern is </h3>
+    <p><span id="result1"></span></p>
+
+    <script>
+        function find(string,letter){
+            var count=0;
+            for(var position=0;position<string.length;position++){
+                if(string.charAt(position)==letter){
+                    count+=1;
+                }
+            }
+            return count;
+        }
+        document.getElementById("result1").innerHTML=find("learn vern ","e")
+    </script>
+</body>
+</html>
